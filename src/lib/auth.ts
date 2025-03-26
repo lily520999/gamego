@@ -1,6 +1,6 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { compare, hash } from 'bcrypt'
+import bcrypt from 'bcrypt'
 import prisma from './prisma'
 
 export const authOptions: NextAuthOptions = {
@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        const isPasswordValid = await compare(
+        const isPasswordValid = await bcrypt.compare(
           credentials.password,
           user.passwordHash
         )
@@ -91,7 +91,7 @@ export async function createUser(name: string, email: string, password: string) 
   }
 
   // 密码加密
-  const hashedPassword = await hash(password, 10)
+  const hashedPassword = await bcrypt.hash(password, 10)
 
   // 创建用户
   const user = await prisma.user.create({
@@ -119,7 +119,7 @@ export async function verifyUser(email: string, password: string) {
   }
 
   // 验证密码
-  const passwordMatch = await compare(password, user.passwordHash)
+  const passwordMatch = await bcrypt.compare(password, user.passwordHash)
   if (!passwordMatch) {
     throw new Error('Invalid password')
   }
