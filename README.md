@@ -3,7 +3,6 @@
 A modern game hosting platform built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Features
-
 - Modern and responsive UI
 - Game upload and hosting
 - User authentication
@@ -13,7 +12,6 @@ A modern game hosting platform built with Next.js, TypeScript, and Tailwind CSS.
 - API routes for data operations
 
 ## Tech Stack
-
 - Next.js 14
 - TypeScript
 - Tailwind CSS
@@ -24,10 +22,9 @@ A modern game hosting platform built with Next.js, TypeScript, and Tailwind CSS.
 - bcryptjs (for password hashing)
 
 ## Getting Started
-
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/gamego.git
+git clone https://github.com/lily520999/gamego.git
 cd gamego
 ```
 
